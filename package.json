@@ -30,7 +30,8 @@
     "esprima": "^1.2.2",
     "fu": "^0.1.x",
     "jshint": "^2.5.6",
-    "minimatch": "^1.0.0"
+    "minimatch": "^1.0.0",
+    "snyk": "^1.190.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
@@ -42,7 +43,9 @@
   "scripts": {
     "lint": "jshint .",
     "coverage": "node ./node_modules/istanbul/lib/cli.js cover testla test",
-    "test": "npm run lint && testla test"
+    "test": "npm run lint && testla test",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "files": [
     "bin",
@@ -57,5 +60,6 @@
     "ghooks": {
       "pre-push": "npm test"
     }
-  }
+  },
+  "snyk": true
 }
